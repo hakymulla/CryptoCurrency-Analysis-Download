@@ -1,19 +1,13 @@
-from tracemalloc import start
 import pandas as pd
 import streamlit as st
 import yfinance as yf
 import base64
 import matplotlib.pyplot as plt
 import numpy as np
-import requests
-import json
-import pandas as pd
-import requests
 import json
 from bs4 import BeautifulSoup
 from PIL import Image
 from datetime import datetime
-import json
 
 
 image = Image.open("pexels-worldspectrum-844124.jpg")
@@ -39,23 +33,6 @@ def load_crypto_json():
     file = open("crypto.json", "r")
     loaded = json.load(file)
     return loaded
-
-
-@st.cache
-def get_crptoname():
-    crypto_dict = {}
-    website = "https://finance.yahoo.com/cryptocurrencies/"
-    site = requests.get(website)
-    soup = BeautifulSoup(site.text, "html.parser")
-    rows = soup.findAll("table")[0].findAll("tr")
-    for row in rows[1:]:
-        row = row.text
-        if "US" in row[:4]:
-            pass
-        else:
-            row_list = row.split("USD")
-            crypto_dict[row_list[1].strip(" ")] = f"{row_list[0]}USD"
-    return crypto_dict
 
 
 crypto_dict = load_crypto_json()
