@@ -5,7 +5,6 @@ import base64
 import matplotlib.pyplot as plt
 import numpy as np
 import json
-from bs4 import BeautifulSoup
 from PIL import Image
 from datetime import datetime
 
