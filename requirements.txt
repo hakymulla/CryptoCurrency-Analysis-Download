@@ -3,4 +3,4 @@ streamlit==1.2.0
 yfinance==0.1.67
 matplotlib==3.4.2
 numpy==1.19.5 
-PIL==7.0.0
+# PIL==7.0.0
